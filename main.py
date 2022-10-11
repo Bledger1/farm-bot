@@ -15,8 +15,10 @@ class States(BaseStateGroup):
 @bot.on.private_message(payload = {"cmd": "start"})
 async def start_handler(message: Message):
     try:
-        User2.get(vk_id=message.from_id)
+        User.get(vk_id=message.from_id)
         await message.answer("hello")
     except:
         await bot.state_dispenser.set(message.peer_id, States.AWKWARD_STATE)
         await message.answer("Введите название своего поселения: ")
+        
+bot.run_forever()
