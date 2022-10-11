@@ -10,6 +10,7 @@ class BaseModel(Model):
 class User(BaseModel):
     vk_id = IntegerField(primary_key=True) #vk айди
     settlement = TextField() #название поселение
+    status = TextField(default="игрок")
     clan =  TextField(null=True) #клан значение может быть пустым
     balance = IntegerField(default=0) #казна
     eat = IntegerField(default=0) #еда
